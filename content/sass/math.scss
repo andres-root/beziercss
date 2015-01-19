@@ -24,6 +24,18 @@
 	@return nth($points, 1);
 }
 
+@function bezier-shadow($points, $detail) {
+	$shadow: ();
+
+	@for $i from 0 to $detail {
+		$point: bezier-reduce($points, $i / $detail);
+
+		$shadow: append($shadow, nth($point, 1) nth($point, 2), comma);
+	}
+
+	box-shadow: $shadow;
+}
+
 @mixin draw-system($conf) {
 
 }
