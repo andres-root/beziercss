@@ -1,0 +1,56 @@
+@import "compass";
+@import "compass/css3";
+@import "math";
+
+
+@mixin draw-system($conf) {
+	width: map-get($conf, 'size');
+	height: map-get($conf, 'size');
+	position: relative;
+	color: map-get($conf, 'color');
+	border-left: 2px solid;
+	border-bottom: 2px solid;
+	border-top: 1px dashed;
+	border-right: 1px dashed;
+
+	@if map-get($conf, 'informations') {
+		&::after,
+		&::before {
+			position: absolute;
+			bottom: -1.75em;
+			text-transform: uppercase;
+			font-size: .75em;
+		}
+
+		@if map-has-key($conf, 'name') {
+			&::before {
+				content: "#{map-get($conf, 'name')}";
+				left: 0;
+			}
+		}
+
+		&::after {
+		 	content: "#{map-get($conf, 'points')}";
+			right: 0;
+		}
+	}
+
+	> * {
+		@include draw-curve($conf);
+	}
+}
+
+@mixin cubic-bezier($x1, $y1, $x2, $y2, $options: ()) {
+	$options: map-merge(
+		(
+			'control-points': true,
+			'informations': true,
+			'size': 300px,
+			'color': #999,
+			'points': ($x1, $y1, $x2, $y2),
+			'detail': 30
+		),
+		$options
+	);
+	@include draw-system($options);
+}
