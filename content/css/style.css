@@ -1,0 +1,43 @@
+/*
+Error: Invalid CSS after "@import "bezier"": expected selector or at-rule, was ".grid {"
+        on line 5 of /Users/andlujan/sites/beziercss/content/sass/style.scss
+
+1: @import "compass";
+2: @import "compass/css3";
+3: @import "bezier"
+4: 
+5: .grid {
+6: 	@include cubic-bezier(.32, 1, .53, .8,
+7: 		('control-points': true,
+8: 		'informations': true,
+9: 		'size': 300px,
+10: 		'color': #999,
+
+Backtrace:
+/Users/andlujan/sites/beziercss/content/sass/style.scss:5
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.9/lib/sass/scss/parser.rb:1165:in `expected'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.9/lib/sass/scss/parser.rb:1101:in `expected'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.9/lib/sass/scss/parser.rb:43:in `parse'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.9/lib/sass/engine.rb:393:in `_to_tree'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.9/lib/sass/engine.rb:268:in `render'
+/Library/Ruby/Gems/2.0.0/gems/compass-import-once-1.0.5/lib/compass/import-once/engine.rb:17:in `block in render'
+/Library/Ruby/Gems/2.0.0/gems/compass-import-once-1.0.5/lib/compass/import-once/engine.rb:29:in `with_import_scope'
+/Library/Ruby/Gems/2.0.0/gems/compass-import-once-1.0.5/lib/compass/import-once/engine.rb:16:in `render'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.9/lib/sass/plugin/compiler.rb:492:in `update_stylesheet'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.9/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.9/lib/sass/plugin/compiler.rb:209:in `each'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.9/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.9/lib/sass/plugin/compiler.rb:470:in `on_file_changed'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.9/lib/sass/plugin/compiler.rb:328:in `block in watch'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.9/vendor/listen/lib/listen/listener.rb:252:in `call'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.9/vendor/listen/lib/listen/listener.rb:252:in `on_change'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.9/vendor/listen/lib/listen/listener.rb:290:in `block in initialize_adapter'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.9/vendor/listen/lib/listen/adapter.rb:254:in `call'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.9/vendor/listen/lib/listen/adapter.rb:254:in `report_changes'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.9/vendor/listen/lib/listen/adapter.rb:323:in `poll_changed_directories'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.9/vendor/listen/lib/listen/adapter.rb:299:in `block in start_poller'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Invalid CSS after \"@import \"bezier\"\": expected selector or at-rule, was \".grid {\"\A         on line 5 of /Users/andlujan/sites/beziercss/content/sass/style.scss\A \A 1: @import \"compass\";\A 2: @import \"compass/css3\";\A 3: @import \"bezier\"\A 4: \A 5: .grid {\A 6: 	@include cubic-bezier(.32, 1, .53, .8,\A 7: 		('control-points': true,\A 8: 		'informations': true,\A 9: 		'size': 300px,\A 10: 		'color': #999,"; }

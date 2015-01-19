@@ -1,6 +1,6 @@
 @import "compass";
 @import "compass/css3";
-@import "math";
+@import "bezier"
 
 .grid {
 	@include cubic-bezier(.32, 1, .53, .8,
