@@ -1,5 +1,8 @@
 @import "compass";
 
+
+@mixin draw-system($conf) {}
+
 @mixin cubic-bezier($x1, $y1, $x2, $y2, $options: ()) {
 	$options: map-merge(
 		(

@@ -1,0 +1,12 @@
+@import "compass";
+@import "math";
+
+.grid {
+	@include cubic-bezier(.32, 1, .53, .8,
+		('control-points': true,
+		'informations': true,
+		'size': 300px,
+		'color': #999,
+		'details': 64)
+	);
+}
