@@ -1,7 +1,19 @@
 @import "compass";
+@import "compass/css3";
 
 
-@mixin draw-system($conf) {}
+/// Linear Interpolation
+@function lerp($a, $b, $p) {
+	@return ($b - $a) * $p + $a;
+}
+
+@function lerp-point($a, $b, $p) {
+	@return lerp(nth($a, 1), nth($b, 1), $p), lerp(nth($a, 2), nth($b, 2), $p);
+}
+
+@mixin draw-system($conf) {
+
+}
 
 @mixin cubic-bezier($x1, $y1, $x2, $y2, $options: ()) {
 	$options: map-merge(
@@ -17,3 +29,4 @@
 	);
 	@include draw-system($options);
 }
+
