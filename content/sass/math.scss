@@ -11,6 +11,19 @@
 	@return lerp(nth($a, 1), nth($b, 1), $p), lerp(nth($a, 2), nth($b, 2), $p);
 }
 
+@function bezier-reduce($points, $p) {
+	@while length($points) > 1 {
+		$tmp: ();
+
+		@for $i from 1 to length($points) {
+			$tmp: append($tmp, lerp-point(nth($points, $i), nth($point $i + 1), $p));
+		}
+
+		$points: $tmp;
+	}
+	@return nth($points, 1);
+}
+
 @mixin draw-system($conf) {
 
 }
