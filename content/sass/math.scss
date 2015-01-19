@@ -1,0 +1,16 @@
+@import "compass";
+
+@mixin cubic-bezier($x1, $y1, $x2, $y2, $options: ()) {
+	$options: map-merge(
+		(
+			'control-points': true,
+			'informations': true,
+			'size': 300px,
+			'color': #999,
+			'points': ($x1, $y1, $x2, $y2),
+			'detail': 30
+		),
+		$options
+	);
+	@include draw-system($options);
+}
