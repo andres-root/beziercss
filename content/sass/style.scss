@@ -2,12 +2,6 @@
 @import "compass/css3";
 @import "bezier";
 
-@mixin center-block {
- 	display: block;
- 	margin-left: auto;
- 	margin-right: auto;
-}
-
 h1 {
 	position: relative;
 	left: 50%;
