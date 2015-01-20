@@ -2,6 +2,16 @@
 @import "compass/css3";
 @import "bezier";
 
+@mixin center-block {
+ 	display: block;
+ 	margin-left: auto;
+ 	margin-right: auto;
+}
+
+h1 {
+	@include center-block;
+}
+
 .grid {
 	margin: 1em;
 	float: left;
