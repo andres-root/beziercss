@@ -3,6 +3,23 @@
 @import "math";
 
 
+@mixin draw-dots($conf) {
+	$points: map-get($conf, 'points');
+	$size: map-get($conf, 'size');
+	
+}
+
+
+@mixin draw-curve($conf) {
+	@include draw-curve-wrapper($conf);
+
+	@include draw-dots($conf);
+
+	@if map-get($conf, 'control-points') {
+		@include draw-control-points($conf);
+	}
+}
+
 @mixin draw-system($conf) {
 	width: map-get($conf, 'size');
 	height: map-get($conf, 'size');
