@@ -9,7 +9,9 @@
 }
 
 h1 {
-	@include center-block;
+	position: relative;
+	left: 50%;
+	transform: translateX(-50%);
 }
 
 .grid {
