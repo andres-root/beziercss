@@ -1,4 +1,9 @@
 .grid {
+  margin: 1em;
+  float: left;
+}
+
+.grid-1 {
   width: 300px;
   height: 300px;
   position: relative;
@@ -8,17 +13,21 @@
   border-top: 1px dashed;
   border-right: 1px dashed;
 }
-.grid::after, .grid::before {
+.grid-1::after, .grid-1::before {
   position: absolute;
   bottom: -1.75em;
   text-transform: uppercase;
   font-size: .75em;
 }
-.grid::after {
-  content: "0.32, 1, 0.53, 0.8";
+.grid-1::before {
+  content: "ease-in";
+  left: 0;
+}
+.grid-1::after {
+  content: "0.42, 0, 1, 1";
   right: 0;
 }
-.grid > * {
+.grid-1 > * {
   position: absolute;
   top: 0;
   right: 0;
@@ -26,7 +35,7 @@
   left: 0;
   color: #999;
 }
-.grid > *::after {
+.grid-1 > *::after {
   content: '';
   width: 4px;
   height: 4px;
@@ -35,39 +44,191 @@
   position: absolute;
   top: 0;
   left: 0;
-  box-shadow: 0px 300px, 9.49411px 271.18222px, 18.79289px 244.65778px, 27.921px 220.32px, 36.90311px 198.06222px, 45.76389px 177.77778px, 54.528px 159.36px, 63.22011px 142.70222px, 71.86489px 127.69778px, 80.487px 114.24px, 89.11111px 102.22222px, 97.76189px 91.53778px, 106.464px 82.08px, 115.24211px 73.74222px, 124.12089px 66.41778px, 133.125px 60px, 142.27911px 54.38222px, 151.60789px 49.45778px, 161.136px 45.12px, 170.88811px 41.26222px, 180.88889px 37.77778px, 191.163px 34.56px, 201.73511px 31.50222px, 212.62989px 28.49778px, 223.872px 25.44px, 235.48611px 22.22222px, 247.49689px 18.73778px, 259.929px 14.88px, 272.80711px 10.54222px, 286.15589px 5.61778px;
+  box-shadow: 0px 300px, 12.75178px 299.02222px, 25.77422px 296.17778px, 39.018px 291.6px, 52.43378px 285.42222px, 65.97222px 277.77778px, 79.584px 268.8px, 93.21978px 258.62222px, 106.83022px 247.37778px, 120.366px 235.2px, 133.77778px 222.22222px, 147.01622px 208.57778px, 160.032px 194.4px, 172.77578px 179.82222px, 185.19822px 164.97778px, 197.25px 150px, 208.88178px 135.02222px, 220.04422px 120.17778px, 230.688px 105.6px, 240.76378px 91.42222px, 250.22222px 77.77778px, 259.014px 64.8px, 267.08978px 52.62222px, 274.40022px 41.37778px, 280.896px 31.2px, 286.52778px 22.22222px, 291.24622px 14.57778px, 295.002px 8.4px, 297.74578px 3.82222px, 299.42822px 0.97778px;
 }
-.grid > *::before {
+.grid-1 > *::before {
   content: '';
   position: absolute;
   width: 10px;
   height: 10px;
   margin: -5px;
   border-radius: 50%;
-  box-shadow: 0 300px 0 0 tomato, 300px 0 0 0 deepskyblue, 96px 0px 0 0 tomato, 159px 60px 0 0 deepskyblue;
+  box-shadow: 0 300px 0 0 tomato, 300px 0 0 0 deepskyblue, 126px 300px 0 0 tomato, 300px 0px 0 0 deepskyblue;
 }
-.grid > * > * {
+.grid-1 > * > * {
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
 }
-.grid > * > *::before {
+.grid-1 > * > *::before {
   position: absolute;
   bottom: 0;
   left: 0;
   content: '';
-  width: 32%;
-  height: 100%;
-  background: linear-gradient(-1.26109rad, rgba(0, 0, 0, 0) calc(50% - 1px), #999999 calc(50% - 1px), #999999 calc(50% + 1px), rgba(0, 0, 0, 0) calc(50% + 1px));
+  width: 42%;
+  height: 0%;
+  background: linear-gradient(0rad, rgba(0, 0, 0, 0) calc(50% - 1px), #999999 calc(50% - 1px), #999999 calc(50% + 1px), rgba(0, 0, 0, 0) calc(50% + 1px));
 }
-.grid > * > *::after {
+.grid-1 > * > *::after {
   position: absolute;
   top: 0;
   right: 0;
-  width: 47%;
-  height: 20%;
+  width: 1px;
+  height: 1px;
   content: '';
-  background: linear-gradient(-0.40232rad, rgba(0, 0, 0, 0) calc(50% - 1px), #999999 calc(50% - 1px), #999999 calc(50% + 1px), rgba(0, 0, 0, 0) calc(50% + 1px));
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0) calc(50% - 1px), #999999 calc(50% - 1px), #999999 calc(50% + 1px), rgba(0, 0, 0, 0) calc(50% + 1px));
+}
+
+.grid-2 {
+  width: 300px;
+  height: 300px;
+  position: relative;
+  color: #999;
+  border-left: 2px solid;
+  border-bottom: 2px solid;
+  border-top: 1px dashed;
+  border-right: 1px dashed;
+}
+.grid-2::after, .grid-2::before {
+  position: absolute;
+  bottom: -1.75em;
+  text-transform: uppercase;
+  font-size: .75em;
+}
+.grid-2::before {
+  content: "ease-in-out";
+  left: 0;
+}
+.grid-2::after {
+  content: "0.42, 0, 0.58, 1";
+  right: 0;
+}
+.grid-2 > * {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  color: #999;
+}
+.grid-2 > *::after {
+  content: '';
+  width: 4px;
+  height: 4px;
+  margin: -2px;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-shadow: 0px 300px, 12.34578px 299.02222px, 24.20622px 296.17778px, 35.616px 291.6px, 46.60978px 285.42222px, 57.22222px 277.77778px, 67.488px 268.8px, 77.44178px 258.62222px, 87.11822px 247.37778px, 96.552px 235.2px, 105.77778px 222.22222px, 114.83022px 208.57778px, 123.744px 194.4px, 132.55378px 179.82222px, 141.29422px 164.97778px, 150px 150px, 158.70578px 135.02222px, 167.44622px 120.17778px, 176.256px 105.6px, 185.16978px 91.42222px, 194.22222px 77.77778px, 203.448px 64.8px, 212.88178px 52.62222px, 222.55822px 41.37778px, 232.512px 31.2px, 242.77778px 22.22222px, 253.39022px 14.57778px, 264.384px 8.4px, 275.79378px 3.82222px, 287.65422px 0.97778px;
+}
+.grid-2 > *::before {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  margin: -5px;
+  border-radius: 50%;
+  box-shadow: 0 300px 0 0 tomato, 300px 0 0 0 deepskyblue, 126px 300px 0 0 tomato, 174px 0px 0 0 deepskyblue;
+}
+.grid-2 > * > * {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.grid-2 > * > *::before {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  content: '';
+  width: 42%;
+  height: 0%;
+  background: linear-gradient(0rad, rgba(0, 0, 0, 0) calc(50% - 1px), #999999 calc(50% - 1px), #999999 calc(50% + 1px), rgba(0, 0, 0, 0) calc(50% + 1px));
+}
+.grid-2 > * > *::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 42.0%;
+  height: 1px;
+  content: '';
+  background: linear-gradient(0rad, rgba(0, 0, 0, 0) calc(50% - 1px), #999999 calc(50% - 1px), #999999 calc(50% + 1px), rgba(0, 0, 0, 0) calc(50% + 1px));
+}
+
+.grid-3 {
+  width: 300px;
+  height: 300px;
+  position: relative;
+  color: #999;
+  border-left: 2px solid;
+  border-bottom: 2px solid;
+  border-top: 1px dashed;
+  border-right: 1px dashed;
+}
+.grid-3::after, .grid-3::before {
+  position: absolute;
+  bottom: -1.75em;
+  text-transform: uppercase;
+  font-size: .75em;
+}
+.grid-3::after {
+  content: "0.13, 0.88, 0.5, 0.42";
+  right: 0;
+}
+.grid-3 > * {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  color: #999;
+}
+.grid-3 > *::after {
+  content: '';
+  width: 4px;
+  height: 4px;
+  margin: -2px;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-shadow: 0px 300px, 4.13878px 274.91356px, 8.75022px 252.34844px, 13.827px 232.146px, 19.36178px 214.14756px, 25.34722px 198.19444px, 31.776px 184.128px, 38.64078px 171.78956px, 45.93422px 161.02044px, 53.649px 151.662px, 61.77778px 143.55556px, 70.31322px 136.54244px, 79.248px 130.464px, 88.57478px 125.16156px, 98.28622px 120.47644px, 108.375px 116.25px, 118.83378px 112.32356px, 129.65522px 108.53844px, 140.832px 104.736px, 152.35678px 100.75756px, 164.22222px 96.44444px, 176.421px 91.638px, 188.94578px 86.17956px, 201.78922px 79.91044px, 214.944px 72.672px, 228.40278px 64.30556px, 242.15822px 54.65244px, 256.203px 43.554px, 270.52978px 30.85156px, 285.13122px 16.38644px;
+}
+.grid-3 > *::before {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  margin: -5px;
+  border-radius: 50%;
+  box-shadow: 0 300px 0 0 tomato, 300px 0 0 0 deepskyblue, 39px 36px 0 0 tomato, 150px 174px 0 0 deepskyblue;
+}
+.grid-3 > * > * {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.grid-3 > * > *::before {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  content: '';
+  width: 13%;
+  height: 88%;
+  background: linear-gradient(-1.42413rad, rgba(0, 0, 0, 0) calc(50% - 1px), #999999 calc(50% - 1px), #999999 calc(50% + 1px), rgba(0, 0, 0, 0) calc(50% + 1px));
+}
+.grid-3 > * > *::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 58%;
+  content: '';
+  background: linear-gradient(-0.85934rad, rgba(0, 0, 0, 0) calc(50% - 1px), #999999 calc(50% - 1px), #999999 calc(50% + 1px), rgba(0, 0, 0, 0) calc(50% + 1px));
 }

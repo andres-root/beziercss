@@ -3,11 +3,22 @@
 @import "bezier";
 
 .grid {
-	@include cubic-bezier(.32, 1, .53, .8,
-		('control-points': true,
-		'informations': true,
-		'size': 300px,
-		'color': #999,
-		'details': 64)
-	);
+	margin: 1em;
+	float: left;
+}
+
+.grid-1 {
+	@include cubic-bezier(.42, 0, 1, 1, ( 
+		'name': 'ease-in'
+	));
+} 
+
+.grid-2 {
+	@include cubic-bezier(.42, 0, .58, 1, (
+		'name': 'ease-in-out'
+	));
+}
+
+.grid-3 {
+	@include cubic-bezier(.13, .88, .5, .42); 
 }
