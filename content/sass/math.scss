@@ -16,7 +16,7 @@
 		$tmp: ();
 
 		@for $i from 1 to length($points) {
-			$tmp: append($tmp, lerp-point(nth($points, $i), nth($point $i + 1), $p));
+			$tmp: append($tmp, lerp-point(nth($points, $i), nth($points, $i + 1), $p));
 		}
 
 		$points: $tmp;
@@ -35,22 +35,20 @@
 	box-shadow: $shadow;
 }
 
-@mixin draw-system($conf) {
 
+@mixin circle($size) {
+  	width: $size;
+  	height: $size;
+  	margin: -($size/2);
+  	border-radius: 50%;
 }
 
-@mixin cubic-bezier($x1, $y1, $x2, $y2, $options: ()) {
-	$options: map-merge(
-		(
-			'control-points': true,
-			'informations': true,
-			'size': 300px,
-			'color': #999,
-			'points': ($x1, $y1, $x2, $y2),
-			'detail': 30
-		),
-		$options
-	);
-	@include draw-system($options);
+@mixin absolute($top: null, $right: null, $bottom: null, $left: null) {
+	position: absolute;
+	top: $top;
+	right: $right;
+	bottom: $bottom;
+	left: $left;
 }
+
 

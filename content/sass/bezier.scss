@@ -6,9 +6,80 @@
 @mixin draw-dots($conf) {
 	$points: map-get($conf, 'points');
 	$size: map-get($conf, 'size');
-	
+	&::after {
+	    content: '';
+	    @include circle(4px);
+	    @include absolute($left: 0, $top: 0);
+	    @include bezier-shadow((
+	      0 $size,
+	      (nth($points, 1) * $size) ((1 - nth($points, 2)) * $size),
+	      (nth($points, 3) * $size) ((1 - nth($points, 4)) * $size),
+	      $size 0
+	    ), map-get($conf, 'detail'));
+	  }
 }
 
+@mixin draw-control-points($conf) {
+  $args: map-get($conf, 'points');
+  $size: map-get($conf, 'size');
+  $color: map-get($conf, 'color');
+  
+  $x1: nth($args, 1);
+  $y1: nth($args, 2);
+  $x2: nth($args, 3);
+  $y2: nth($args, 4);
+  
+  &::before {
+    content: '';
+    @include absolute;
+    @include circle(10px);
+    box-shadow:
+      0 $size 0 0 tomato,
+      $size 0 0 0 deepskyblue,
+      ($size * $x1) $size - ($size * $y1) 0 0 tomato,
+      ($size * $x2) $size - ($size * $y2) 0 0 deepskyblue; 
+  } 
+  
+  > * {
+    @include absolute($top: 0, $right: 0, $bottom: 0, $left: 0);
+
+    &::before {
+      @include absolute($left: 0, $bottom: 0);
+      content: '';
+      width:  $x1 * 100%;
+      height: $y1 * 100%; 
+      background: linear-gradient(
+        if($x1 == 1, 90deg, 0 - atan($y1 / $x1) * 1rad), 
+        transparent calc(50% - 1px), 
+        $color calc(50% - 1px), 
+        $color calc(50% + 1px), 
+        transparent calc(50% + 1px)
+      ); 
+    }
+
+    &::after {
+      $v: abs($x2 * 100 - 100);
+      $w: abs($y2 * 100 - 100);
+      
+      @include absolute($top: 0, $right: 0);
+      width:  if($v == 0, 1px, $v * 1%);
+      height: if($w == 0, 1px, $w * 1%);
+      content: '';
+      background: linear-gradient(
+        if($x2 == 1, 90deg, 0 - atan(($y2 - 1) / ($x2 - 1)) * 1rad), 
+        transparent calc(50% - 1px), 
+        $color calc(50% - 1px), 
+        $color calc(50% + 1px), 
+        transparent calc(50% + 1px)
+      ); 
+    }
+  }
+}
+
+@mixin draw-curve-wrapper($conf) {
+ 	@include absolute($top: 0, $right: 0, $bottom: 0, $left: 0);
+ 	color: map-get($conf, 'color');
+}
 
 @mixin draw-curve($conf) {
 	@include draw-curve-wrapper($conf);

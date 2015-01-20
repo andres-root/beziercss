@@ -1,46 +1,73 @@
-/*
-Error: Invalid CSS after "@import "bezier"": expected selector or at-rule, was ".grid {"
-        on line 5 of /Users/andlujan/sites/beziercss/content/sass/style.scss
-
-1: @import "compass";
-2: @import "compass/css3";
-3: @import "bezier"
-4: 
-5: .grid {
-6: 	@include cubic-bezier(.32, 1, .53, .8,
-7: 		('control-points': true,
-8: 		'informations': true,
-9: 		'size': 300px,
-10: 		'color': #999,
-
-Backtrace:
-/Users/andlujan/sites/beziercss/content/sass/style.scss:5
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.9/lib/sass/scss/parser.rb:1165:in `expected'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.9/lib/sass/scss/parser.rb:1101:in `expected'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.9/lib/sass/scss/parser.rb:43:in `parse'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.9/lib/sass/engine.rb:393:in `_to_tree'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.9/lib/sass/engine.rb:268:in `render'
-/Library/Ruby/Gems/2.0.0/gems/compass-import-once-1.0.5/lib/compass/import-once/engine.rb:17:in `block in render'
-/Library/Ruby/Gems/2.0.0/gems/compass-import-once-1.0.5/lib/compass/import-once/engine.rb:29:in `with_import_scope'
-/Library/Ruby/Gems/2.0.0/gems/compass-import-once-1.0.5/lib/compass/import-once/engine.rb:16:in `render'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.9/lib/sass/plugin/compiler.rb:492:in `update_stylesheet'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.9/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.9/lib/sass/plugin/compiler.rb:209:in `each'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.9/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.9/lib/sass/plugin/compiler.rb:293:in `watch'
-/Library/Ruby/Gems/2.0.0/gems/compass-1.0.1/lib/compass/sass_compiler.rb:46:in `watch!'
-/Library/Ruby/Gems/2.0.0/gems/compass-1.0.1/lib/compass/commands/watch_project.rb:41:in `perform'
-/Library/Ruby/Gems/2.0.0/gems/compass-1.0.1/lib/compass/commands/base.rb:18:in `execute'
-/Library/Ruby/Gems/2.0.0/gems/compass-1.0.1/lib/compass/commands/project_base.rb:19:in `execute'
-/Library/Ruby/Gems/2.0.0/gems/compass-1.0.1/lib/compass/exec/sub_command_ui.rb:43:in `perform!'
-/Library/Ruby/Gems/2.0.0/gems/compass-1.0.1/lib/compass/exec/sub_command_ui.rb:15:in `run!'
-/Library/Ruby/Gems/2.0.0/gems/compass-1.0.1/bin/compass:30:in `block in <top (required)>'
-/Library/Ruby/Gems/2.0.0/gems/compass-1.0.1/bin/compass:44:in `call'
-/Library/Ruby/Gems/2.0.0/gems/compass-1.0.1/bin/compass:44:in `<top (required)>'
-/usr/bin/compass:23:in `load'
-/usr/bin/compass:23:in `<main>'
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Error: Invalid CSS after \"@import \"bezier\"\": expected selector or at-rule, was \".grid {\"\A         on line 5 of /Users/andlujan/sites/beziercss/content/sass/style.scss\A \A 1: @import \"compass\";\A 2: @import \"compass/css3\";\A 3: @import \"bezier\"\A 4: \A 5: .grid {\A 6: 	@include cubic-bezier(.32, 1, .53, .8,\A 7: 		('control-points': true,\A 8: 		'informations': true,\A 9: 		'size': 300px,\A 10: 		'color': #999,"; }
+.grid {
+  width: 300px;
+  height: 300px;
+  position: relative;
+  color: #999;
+  border-left: 2px solid;
+  border-bottom: 2px solid;
+  border-top: 1px dashed;
+  border-right: 1px dashed;
+}
+.grid::after, .grid::before {
+  position: absolute;
+  bottom: -1.75em;
+  text-transform: uppercase;
+  font-size: .75em;
+}
+.grid::after {
+  content: "0.32, 1, 0.53, 0.8";
+  right: 0;
+}
+.grid > * {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  color: #999;
+}
+.grid > *::after {
+  content: '';
+  width: 4px;
+  height: 4px;
+  margin: -2px;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-shadow: 0px 300px, 9.49411px 271.18222px, 18.79289px 244.65778px, 27.921px 220.32px, 36.90311px 198.06222px, 45.76389px 177.77778px, 54.528px 159.36px, 63.22011px 142.70222px, 71.86489px 127.69778px, 80.487px 114.24px, 89.11111px 102.22222px, 97.76189px 91.53778px, 106.464px 82.08px, 115.24211px 73.74222px, 124.12089px 66.41778px, 133.125px 60px, 142.27911px 54.38222px, 151.60789px 49.45778px, 161.136px 45.12px, 170.88811px 41.26222px, 180.88889px 37.77778px, 191.163px 34.56px, 201.73511px 31.50222px, 212.62989px 28.49778px, 223.872px 25.44px, 235.48611px 22.22222px, 247.49689px 18.73778px, 259.929px 14.88px, 272.80711px 10.54222px, 286.15589px 5.61778px;
+}
+.grid > *::before {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  margin: -5px;
+  border-radius: 50%;
+  box-shadow: 0 300px 0 0 tomato, 300px 0 0 0 deepskyblue, 96px 0px 0 0 tomato, 159px 60px 0 0 deepskyblue;
+}
+.grid > * > * {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.grid > * > *::before {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  content: '';
+  width: 32%;
+  height: 100%;
+  background: linear-gradient(-1.26109rad, rgba(0, 0, 0, 0) calc(50% - 1px), #999999 calc(50% - 1px), #999999 calc(50% + 1px), rgba(0, 0, 0, 0) calc(50% + 1px));
+}
+.grid > * > *::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 47%;
+  height: 20%;
+  content: '';
+  background: linear-gradient(-0.40232rad, rgba(0, 0, 0, 0) calc(50% - 1px), #999999 calc(50% - 1px), #999999 calc(50% + 1px), rgba(0, 0, 0, 0) calc(50% + 1px));
+}
